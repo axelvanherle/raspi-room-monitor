@@ -34,5 +34,6 @@ jobs:
       with:
         push: true
         context: ./src
+        file: Dockerfile
         tags: axelvanherle/raspi-room-monitor:latest
         platforms: linux/arm64
