@@ -26,7 +26,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./Dockerfile
+        file: src/Dockerfile
         push: true
         tags: axelvanherle/raspi-room-monitor:latest
         platforms: linux/arm64
