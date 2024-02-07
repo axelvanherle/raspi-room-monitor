@@ -30,10 +30,9 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
-        context: .
-        file: src/Dockerfile
         push: true
-        tags: ghcr.io/axelvanherle/raspi-room-monitor:latest
+        context: ./src
+        tags: axelvanherle/raspi-room-monitor:latest
         platforms: linux/arm64
