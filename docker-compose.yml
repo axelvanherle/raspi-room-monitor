@@ -10,11 +10,13 @@ services:
       - "9090:9090"
 
   data_scraper:
+    image: ghcr.io/axelvanherle/raspi-room-monitor:latest
     privileged: true
-    build: .
     restart: unless-stopped
     devices:
       - "/dev/gpiomem:/dev/gpiomem"
+    ports:
+      - "8000:8000"
     depends_on:
       - prometheus
 
