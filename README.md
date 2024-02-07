@@ -1,2 +1,1 @@
-# raspi-room-monitor
-WIP
+# raspi-dht11-monitor

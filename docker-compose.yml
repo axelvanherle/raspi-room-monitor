@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus_config.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  data_scraper:
+    privileged: true
+    build: .
+    restart: unless-stopped
+    devices:
+      - "/dev/gpiomem:/dev/gpiomem"
+    depends_on:
+      - prometheus
+
+  grafana:
+    image: grafana/grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources"
+      - "./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards"
+    depends_on:
+      - prometheus
+      - data_scraper
