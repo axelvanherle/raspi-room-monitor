@@ -30,7 +30,7 @@ APIKEY = os.getenv('OPENWEATHER_API_KEY')
 LAT = os.getenv('LAT')
 LON = os.getenv('LON')
 UNITS = os.getenv('UNITS')
-url = f'https://api.openweathermap.org/data/2.5/forecast?lat={LAT}&lon={LON}&appid={APIKEY}&units={UNITS}'
+url = f'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={APIKEY}&units={UNITS}'
 # from main
 temperature_gauge = Gauge('weather_temperature', 'Temperature')
 feels_like_gauge = Gauge('weather_feels_like', 'Feels Like Temperature')
