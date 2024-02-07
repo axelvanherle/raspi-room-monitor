@@ -1,7 +1,6 @@
 import psutil
 from prometheus_client import start_http_server, Gauge
 import time
-# test
 
 cpu_usage = Gauge('cpu_usage', 'CPU Usage', ['core'])
 ram_usage = Gauge('ram_usage', 'RAM Usage')
