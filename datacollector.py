@@ -6,8 +6,6 @@ cpu_usage = Gauge('cpu_usage', 'CPU Usage', ['core'])
 ram_usage = Gauge('ram_usage', 'RAM Usage')
 disk_usage = Gauge('disk_usage', 'Disk Usage', ['partition'])
 temperature = Gauge('temperature', 'Temperature')
-network_upload = Gauge('network_upload', 'Network Upload Speed', ['interface'])
-network_download = Gauge('network_download', 'Network Download Speed', ['interface'])
 
 def collect_system_metrics():
     for i, percentage in enumerate(psutil.cpu_percent(percpu=True)):
@@ -26,11 +24,6 @@ def collect_system_metrics():
             temperature.set(temp)
     except FileNotFoundError:
         print("Temperature sensor not found")
-
-    for interface_name, interface_stats in psutil.net_io_counters(pernic=True).items():
-        if interface_name == 'wlan0':  # Replace with your wireless interface name if different
-            network_upload.labels(interface=interface_name).set(interface_stats.bytes_sent)
-            network_download.labels(interface=interface_name).set(interface_stats.bytes_recv)
 
 start_http_server(8000)
 
