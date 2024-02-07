@@ -33,7 +33,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        context: ./src
-        file: Dockerfile
+        context: .
+        file: ./src/Dockerfile
         tags: axelvanherle/raspi-room-monitor:latest
         platforms: linux/arm64
