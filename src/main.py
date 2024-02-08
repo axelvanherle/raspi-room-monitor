@@ -16,12 +16,14 @@ except Exception as e:
 while True:
     try:
         collect_system_metrics()
+        logging.info("Collected system_metrics.")
     except Exception as e:
         logging.error(f"Error collecting system metrics: {e}")
         continue
 
     try:
         send_openweather_api_req()
+        logging.info("Collected openweather_api_data.")
     except Exception as e:
         logging.error(f"Error fetching weather data: {e}")
         continue
