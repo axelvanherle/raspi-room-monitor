@@ -2,7 +2,7 @@ import time
 import logging
 from prometheus_client import start_http_server
 from system_metrics import collect_system_metrics
-from weather_data import send_openweather_api_req
+from openweather_current_metrics import send_openweather_current_api_req
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
@@ -22,10 +22,10 @@ while True:
         continue
 
     try:
-        send_openweather_api_req()
-        logging.info("Collected openweather_api_data.")
+        send_openweather_current_api_req()
+        logging.info("Collected current_openweather_api_data.")
     except Exception as e:
-        logging.error(f"Error fetching weather data: {e}")
+        logging.error(f"Error fetching current_weather data: {e}")
         continue
 
     time.sleep(60)
