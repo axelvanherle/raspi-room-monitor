@@ -1388,7 +1388,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "weather_wind_speed",
+          "expr": "weather_wind_gust",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
