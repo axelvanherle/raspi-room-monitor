@@ -1,23 +1,14 @@
 import Adafruit_DHT
-import time
+from prometheus_client import Gauge
 
-# Sensor type
-DHT_SENSOR = Adafruit_DHT.DHT22
+dht_sens = Adafruit_DHT.DHT22
+dht_pin = 21
 
-DHT_PIN = 21
+temperature_gauge = Gauge('room_temperature_celsius', 'Room Temperature in Celsius')
+humidity_gauge = Gauge('room_humidity_percentage', 'Room Humidity in Percentage')
 
-def read_dht22():
-    humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-
-    if humidity is not None and temperature is not None:
-        print("Temp={0:0.1f}C  Humidity={1:0.1f}%".format(temperature, humidity))
-    else:
-        print("Failed to retrieve data from sensor")
-
-def main():
-    while True:
-        read_dht22()
-        time.sleep(2)  # Delay between readings, set to 2 seconds
-
-if __name__ == "__main__":
-    main()
+def collect_dht22_metrics():
+    humidity, temperature = Adafruit_DHT.read_retry(dht_sens, dht_pin)
+    temperature_gauge.set(temperature)
+    humidity_gauge.set(humidity)
+    
