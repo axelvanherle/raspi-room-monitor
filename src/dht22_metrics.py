@@ -1,4 +1,4 @@
-import Adafruit_DHT
+import adafruit_dht
 from prometheus_client import Gauge
 
 dht_sens = Adafruit_DHT.DHT22
