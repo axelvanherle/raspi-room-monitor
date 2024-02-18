@@ -36,4 +36,4 @@ jobs:
         context: .
         file: ./src/Dockerfile
         tags: ghcr.io/axelvanherle/raspi-room-monitor:latest
-        platforms: linux/arm64
+        platforms: linux/arm/v7, linux/amd64
