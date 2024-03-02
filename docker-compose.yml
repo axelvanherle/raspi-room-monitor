@@ -3,18 +3,11 @@ version: '3'
 services:
   prometheus:
     image: prom/prometheus
-    network_mode: host
     restart: unless-stopped
     volumes:
       - ./prometheus_config.yml:/etc/prometheus/prometheus.yml
-
-  prom-proxy:
-    image: nginx
-    restart: unless-stopped
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - "9091:9090"
+      - "9090:9090"
 
   data_scraper:
     build: src/.
