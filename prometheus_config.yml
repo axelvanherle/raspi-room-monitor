@@ -5,3 +5,11 @@ scrape_configs:
   - job_name: 'data_scraper'
     static_configs:
       - targets: ['data_scraper:8000']
+
+  # Add this section if you have an ESP32 with a DHT11 sensor configured and running.
+  # The ESP32 should be running a web server that exposes metrics at /esp32_dht11_metrics.
+  # If you do not have an ESP32 available, you can remove this section.
+  - job_name: 'esp32_dht11_metrics'
+    metrics_path: '/esp32_dht11_metrics'
+    static_configs:
+      - targets: ['<esp32_dht11_metrics_ip_addr>:80']  # Replace with your ESP32 IP address
