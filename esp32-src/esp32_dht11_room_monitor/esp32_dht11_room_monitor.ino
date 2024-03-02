@@ -20,7 +20,7 @@ void setup()
   }
   Serial.println("Connected to WiFi");
 
-  server.on("/esp32_metrics", HTTP_GET, handleMetrics);
+  server.on("/esp32_dht11_metrics", HTTP_GET, handleMetrics);
   server.begin();
 }
 
@@ -40,12 +40,12 @@ void handleMetrics()
     return;
   }
 
-  String response = "# HELP esp32_temperature_celsius Current temperature in Celsius\n";
-  response += "# TYPE esp32_temperature_celsius gauge\n";
-  response += "esp32_temperature_celsius " + String(temperatureC) + "\n";
-  response += "# HELP esp32_humidity_percent Current humidity in percent\n";
-  response += "# TYPE esp32_humidity_percent gauge\n";
-  response += "esp32_humidity_percent " + String(humidity) + "\n";
+  String response = "# HELP esp32_dht11_metrics_temperature_celsius Current temperature in Celsius\n";
+  response += "# TYPE esp32_dht11_metrics_temperature_celsius gauge\n";
+  response += "esp32_dht11_metrics_temperature_celsius " + String(temperatureC) + "\n";
+  response += "# HELP esp32_dht11_metrics_humidity_percent Current humidity in percent\n";
+  response += "# TYPE esp32_dht11_metrics_humidity_percent gauge\n";
+  response += "esp32_dht11_metrics_humidity_percent " + String(humidity) + "\n";
 
   server.send(200, "text/plain", response);
 }
