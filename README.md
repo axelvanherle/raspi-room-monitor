@@ -1,6 +1,7 @@
 # raspi-room-monitor
 
 Turn your raspberry pi into a monitoring device where you collect metrics to visualize what's going on in your room.
+
 *This project is known to work on a raspberry pi 3b+, your mileage may vary.*
 
 A blogpost has been made about this which you can find [here](https://www.axelvanherle.xyz/blog/2024-03-12_raspiroommonitor/).
@@ -15,7 +16,7 @@ A blogpost has been made about this which you can find [here](https://www.axelva
 ## Howto
 ### My way
 If you want to exactly replicate my stack this is what you're gonna need;
-- raspberry pi (i used the 3b+)
+- raspberry pi (i used the 3b+, this project is known to work on a raspberry pi 3b+, your mileage may vary)
 - esp32 (i used a esp32s)
 - dht11 sensor
 - dht22 sensor
@@ -68,4 +69,5 @@ Once you have a shell you can copy and paste these commands;
 
 ### Your way
 
-![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmR4N3Vlc3Q0a3h1M2lkanBhOHB6dm5tdGc5OG8zdHQ1dndvbG53aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YrSc8Vyn355xs6Qxxe/giphy.gif)
+- ![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmR4N3Vlc3Q0a3h1M2lkanBhOHB6dm5tdGc5OG8zdHQ1dndvbG53aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YrSc8Vyn355xs6Qxxe/giphy.gif)
+- [My blogpost](https://www.axelvanherle.xyz/blog/2024-03-12_raspiroommonitor/) goes into some technical detail.
